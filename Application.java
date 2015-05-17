@@ -23,21 +23,18 @@ public class Application implements CommandLineRunner
     @Override
     public void run(String... strings) throws Exception
     {
-    	jdbcTemplate.execute("drop table customers if exists");
-        jdbcTemplate.execute("create table customers(id serial, first_name varchar(255), last_name varchar(255), time varchar(255))");
+    	jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
+        jdbcTemplate.execute("CREATE TABLE customers(id SERIAL, name VARCHAR(255), audio VARCHAR(255), mytime TIMESTAMP);");
 
-        String[] entries = new String[]{    "Yuannan Cai 2015_3_29", 
-                                            "Wenyu Zhang 2015_4_1", 
-                                            "Zhilei Miao 2015_4_2", 
-                                            "Xi Chen 2015_4_1",
-                                            "Ao Hong 2015_3_27",
-                                            "Yuzhong Ji 2015_2_10",
-                                            "Junkai Yan 2015_3_28"};
+        String[] entries = new String[]{    "Yuannan Cai http://david.guerrero.free.fr/Effects/SuperSheepRelease.wav 2008-11-11 13:56:40", 
+                                            "Wenyu Zhang http://www.sounds.beachware.com/2illionzayp3may/hupthsz/COW3.mp3 2008-11-11 14:56:40", 
+                                            "Zhilei Miao http://100megsfree4.com/cattypaws/golfball2.wav 2008-11-11 15:56:40"
+                                        };
 
         for (String element : entries) 
         {
             String[] field = element.split(" ");
-            jdbcTemplate.update("INSERT INTO customers(first_name,last_name,time) values(?,?,?)", field[0], field[1], field[2]);
+            jdbcTemplate.update("INSERT INTO customers(name, audio, mytime) VALUES(?,?,?)", field[0] + " " + field[1], field[2], field[3] + " " + field[4]);
         }
     }
 }
