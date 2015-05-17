@@ -2,28 +2,28 @@ package hello;
 
 public class Customer 
 {
-    private String firstName, lastName, time;
+    private String userName, audio, time;
 
     public Customer()
     {
 
     }
 
-    public Customer(String firstName, String lastName, String myTime) 
+    public Customer(String userName, String audio, String myTime) 
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.userName = userName;
+        this.audio = audio;
         this.time = myTime;
     }
 
-    public String getFirstName()
+    public String getUserName()
     {
-        return firstName;
+        return userName;
     }
 
-    public String getLastName()
+    public String getAudio()
     {
-        return lastName;
+        return audio;
     }
 
     public String getTime()
@@ -34,6 +34,6 @@ public class Customer
     @Override
     public String toString() 
     {
-        return String.format("Customer [firstName = '%s', lastName = '%s', time = '%s']", firstName, lastName, time);
+        return String.format("Customer [userName = '%s', audio = '%s', time = '%s']", userName, audio, time);
     }
 }
